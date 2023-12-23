@@ -10,10 +10,9 @@ import java.util.Base64;
 import static org.example.AuthSetter.setAuthData;
 
 public class JiraCommenter {
-    private static final String BASE_URL = "https://jira.moscow.alfaintra.net";
 
-    public static void createComment(String issueKey, String commentBody) throws IOException {
-        RestAssured.baseURI = BASE_URL;
+    public static void createComment(String baseURL, String issueKey, String commentBody) throws IOException {
+        RestAssured.baseURI = baseURL;
         String requestBody = "{\"body\": \"" + commentBody + "\"}";
 
         String[] logAndPass = setAuthData();
